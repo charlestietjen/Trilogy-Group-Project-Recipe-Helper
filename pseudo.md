@@ -1,0 +1,22 @@
+## User story for clarity
+
+- Page loads
+- User enters a cuisine category into the form field
+    - The form field assists the user by autocompleting to valid entries
+- User clicks on the meal button
+    - API call fills an array w/meal objects of the chosen cuisine from edamam
+    - A modal is presented to the user with information about a recipe
+    - The user may click "next" to view the next index in the array
+    - Clicking "Select" locks in the currently viewed recipe
+    - The modal closes on clicking "Select" or clicking outside the modal
+- User clicks on the cocktail button
+    - API call fills an array w/objects from cocktails.db of the chosen cuisine type
+    - The user is presented with a modal in the same style as the meal selection
+    - Next displays the next index in the array
+    - Select locks in the currently viewed cocktail and closes the modal
+    - Clicking outside the modal closes the modal
+    - If the array of cocktails comes back empty then we pull a random cocktail instead
+- User clicks the "Smash"/"Combine"/"Submit" button
+    - The user is taken to a new page, or we clear the current page
+    - We combine the two ingredient lists, if possible we combine ingredients that are the same
+    - We display the two directions side by side (if this doesn't look good we adjust)
