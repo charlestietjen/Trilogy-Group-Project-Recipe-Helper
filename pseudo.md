@@ -31,7 +31,7 @@
     'https://api.edamam.com/api/recipes/v2?type=public&q=%22%20%22&app_id=82446414&app_key=' + apiKey + '&cuisineType=' + cuisineType +  '&mealType=Dinner&dishType=Main%20course'
 
 
-    history.recipe[i]
+    hits[i].recipe
 
         .image (string)
 
