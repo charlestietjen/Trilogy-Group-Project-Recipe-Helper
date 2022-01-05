@@ -1,6 +1,6 @@
 let searchButton = document.querySelector("#recipes")
 let searchDrink = document.querySelector("#cocktail")
-
+var cuisineType = "";
 searchButton.addEventListener("click", () => {
   console.log('recipe pressed')
   sendApiRequest()
@@ -15,7 +15,7 @@ searchDrink.addEventListener("click", () => {
 async function sendApiRequest(){
   let APP_ID = "8ad7c3e9"
   let APP_KEY = "bf56552f866dd3ccad5d1f970588ac81"
-  let TYPE = "italian"
+  let TYPE = cuisineType
   let response = await fetch ('https://api.edamam.com/api/recipes/v2?type=public&app_id=' + APP_ID + '&app_key=' + APP_KEY + '&random=true&cuisineType=' + TYPE)
   console.log(response)
   let data = await response.json()
@@ -97,13 +97,24 @@ function useApiData2(data2){
 
 
 
-//Modal script
+//Page logic
+var cuisineTypeArr = ["American", "Asian", "Caribbean", "Central Europe", "Chinese", "Eastern Europe", "French", "Indian", "Japanese", "Mexican", "Middle Eastern", "South American", "South East Asian"];
+var cuisineDDEl = document.querySelector("#cuisine-container");
+var cuisineBtnEl = document.querySelector("#cuisine");
 // Default dropdown value
 const DEFAULT_DROPDOWN_VALUE = 'Cuisine';
+
+var setCuisineType = (function(cType){
+  cuisineType = cType;
+  cuisineBtnEl.innerText = cType;
+  console.log(cType);
+});
 
 // Display selected item from dropdown
 $('.dropdown-menu li a').click(function () {
     $('#cuisine').html($(this).text());
+    console.log(this)
+    cuisineType = $(this).text();
 });
 
 // Hide search section and show result
@@ -122,3 +133,14 @@ goHomeBtn.addEventListener('click', function (event) {
     cuisineContainer.classList.remove('hide');
     resultSection.classList.add('hide');
 });
+
+for(i = 0; i < cuisineTypeArr.length; i++){
+  var cListItem = document.createElement("li");
+  var cListItemA = document.createElement("a");
+  cListItem.classList = "dropdown-item";
+  cListItemA.setAttribute = ("href", "#");
+  cListItemA.innerText = cuisineTypeArr[i];
+  cListItem.appendChild(cListItemA);
+  cuisineDDEl.appendChild(cListItem);
+  cListItemA.addEventListener("click", function() {setCuisineType(this.innerText)});
+};
