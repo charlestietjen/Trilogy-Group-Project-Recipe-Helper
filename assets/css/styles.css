@@ -10,14 +10,6 @@
   font-size: 20px;
 }
 
-body {
-  background-image: url("../images/Tanjong+Beach+Club_Food_Salads+&+Mains.jpg");
-
-  background-size: cover;
-  background-repeat: no-repeat;
-  height: 95vh;
-}
-
 img {
   max-width: 100%;
   display: block;
@@ -27,11 +19,12 @@ ul.dropdown-menu > li {
   text-align: center;
 }
 
+.hide {
+  display: none !important;
+}
+
 @media (max-width: 580px) {
   * {
     font-size: 12px;
   }
-
 }
-
-
