@@ -1,3 +1,15 @@
+## Presenting
+
+1. Charles
+2. Jaimit
+3. Abi
+4. Saj
+
+- Describes the purpose
+- Demos the app
+- Explains the API's used
+- Run down of page logic
+
 ## User story for clarity
 
 - Page loads
@@ -31,7 +43,7 @@
     'https://api.edamam.com/api/recipes/v2?type=public&q=%22%20%22&app_id=82446414&app_key=' + apiKey + '&cuisineType=' + cuisineType +  '&mealType=Dinner&dishType=Main%20course'
 
 
-    history.recipe[i]
+    hits[i].recipe
 
         .image (string)
 

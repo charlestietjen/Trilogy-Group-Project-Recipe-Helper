@@ -63,7 +63,6 @@ function useApiData2(data2){
   </div>
 </div>
   `
-}
 
 
 

@@ -28,3 +28,32 @@ ul.dropdown-menu > li {
     font-size: 12px;
   }
 }
+
+body {
+  background-image: url("../images/Tanjong+Beach+Club_Food_Salads+&+Mains.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 95vh;
+
+}
+
+.header-container {
+  background-color: rgba(119, 119, 119, 0.5);
+  width: 100%;
+}
+
+.header-container h1 {
+  font-size: 40px;
+  font-weight: 700;
+  color: #790421;
+  letter-spacing: 5px;
+  line-height: 40px;
+}
+
+.header-container p {
+  font-weight: 700;
+
+
+}
+
+
