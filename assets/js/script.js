@@ -252,20 +252,22 @@ var fillCocktailCard = function() {
   resultCocktailDirectionsel.innerText = cocktailData.drinks[0].strInstructions;
   resultSection.classList.remove('hide');
 };
-
+// Save the selected recipe and cocktail objects as strings
 var saveRecipes = function(){
   localStorage.setItem("mealRecipe", JSON.stringify(selectedRecipeData));
   localStorage.setItem("cocktailRecipe", JSON.stringify(cocktailData));
 };
-
+// Set the selected recipe and cocktail objects to the parsed saved data
 var getRecipes = function(){
   selectedRecipeData = JSON.parse(localStorage.getItem("mealRecipe"));
   cocktailData = JSON.parse(localStorage.getItem("cocktailRecipe"));
 };
-
-if ((!selectedRecipeData != undefined) || (!cocktailData != undefined)){
-  getRecipes();
-  console.log("saved info present");
-  fillCocktailCard();
+// fill the saved data on load
+getRecipes();
+// if recipe data is not undefined then a valid save exists, fill the card, perform the same check for cocktails
+if (selectedRecipeData != undefined){
   fillRecipeCardEl();
+};
+if (cocktailData != undefined) {
+  fillCocktailCard();
 };
