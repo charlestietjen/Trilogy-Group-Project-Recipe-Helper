@@ -100,6 +100,8 @@ async function fetchCocktail() {
 ![Screenshot 2022-01-06 154454](https://user-images.githubusercontent.com/3880463/148454061-aa5c04ff-209e-424a-bc14-a987c465990c.png)
 ![Screenshot 2022-01-06 154820](https://user-images.githubusercontent.com/3880463/148454043-698ee48c-98d5-4a8d-b3c1-6dd2591de9f0.png)
 ![Screenshot 2022-01-06 154722](https://user-images.githubusercontent.com/3880463/148454055-c7c2aa03-c080-4d06-895e-956892ffd624.png)
+![Screenshot 2022-01-06 170548](https://user-images.githubusercontent.com/3880463/148458898-d68b9076-b4df-45b8-b09b-9f374a8f490b.png)
+
 
 ### Technology Used:
 <li> Edamam API
