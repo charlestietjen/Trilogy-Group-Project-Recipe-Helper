@@ -104,7 +104,6 @@ function useApiData2(data2){
 
 
 
-
 //Page logic
 var cuisineTypeArr = ["American", "Asian", "Caribbean", "Central Europe", "Chinese", "Eastern Europe", "French", "Indian", "Japanese", "Mexican", "Middle Eastern", "South American", "South East Asian"];
 var cuisineDDEl = document.querySelector("#cuisine-container");
