@@ -3,10 +3,10 @@
 ![GitHub last commit](https://img.shields.io/github/last-commit/Charlestietjen/Trilogy-Group-Project-1)
 
 ### Links:
-```
-Deployed link: click[Deployed Link](https://jaimitpatel.github.io/coding-quiz/#)
-Github link: click[Github Link](https://github.com/jaimitpatel/coding-quiz)
-```
+
+<li> Deployed Website:  <br>
+<li> Github : https://github.com/charlestietjen/Trilogy-Group-Project-1
+
 
 ## About the Project:
 The main function of this site is to help users search for randomized recipies and cocktails. <br>
@@ -49,9 +49,11 @@ THEN I can save my initials and score
 ## API Details:
 ### Edamam:
 In order to use this API, we used an async function to pull data from Edamam's API Endpoints using 3 different parameters; <br>
-##### Random: <li> this string is set to true, in order to always give a random set of recipes, instead of the same 20. </li>
-##### Type: <li> this is set to Main Course, because we do not want the api to pull results for any drinks, thus allowing it to only pull food items. </li>
-##### CuisineType: <li> this is set as a variable in the function. This is the main part of the script, as this incorporates user input and allows users to select the cuisine type they would like. </li>
+##### Random: <li> This string is set to true, in order to always give a random set of recipes, instead of the same 20. </li>
+##### Type: <li> This is set to 'Main Course', because we do not want the api to pull results for any drinks, thus allowing it to only pull food items. </li>
+##### CuisineType: <li> this is set as a variable in the function. This is the main part of the script, as this incorporates user input and allows users to select the cuisine type they would like. <br>
+  
+ This is the function that was used to pull data from the Edamam API:
 ```javascript
 async function fetchMeal(){
   let APP_ID = ""
@@ -72,7 +74,9 @@ async function fetchMeal(){
 
 ### CocktailDB:
 This API was very straight forward, as it only allowed one random search per call. Which means that if the user wanted to <br>
-try another recipe, they would have to make another API call request.
+try another recipe, they would have to make another API call request. <br>
+
+This is the function that was used to pull data from the CocktailDB API:
 ```javascript
 async function fetchCocktail() {
   let API_KEY = "1"
@@ -86,6 +90,19 @@ async function fetchCocktail() {
 ##### Endpoint: https://www.thecocktaildb.com/api/json/v1/1/random.php
 
 ### Diagrams:
+![Screenshot 2022-01-06 154454](https://user-images.githubusercontent.com/3880463/148454061-aa5c04ff-209e-424a-bc14-a987c465990c.png)
+![Screenshot 2022-01-06 154820](https://user-images.githubusercontent.com/3880463/148454043-698ee48c-98d5-4a8d-b3c1-6dd2591de9f0.png)
+![Screenshot 2022-01-06 154722](https://user-images.githubusercontent.com/3880463/148454055-c7c2aa03-c080-4d06-895e-956892ffd624.png)
+
+### Technology Used:
+<li> Edamam API
+<li> CocktailDB Api
+<li> Bootstrap 5
+<li> Google Fonts
+<li> Animate.Style
+<li> JQuery
+  
+
 
 
 
@@ -93,9 +110,10 @@ async function fetchCocktail() {
 
 
 ### Contributors:
-1. Charles (Page Logic)
-2. Abi (CSS and Styling)
-3. Saj (Page Logic)
-4. Jaimit (API Information)
+1. [Charles](https://github.com/charlestietjen) (Page Logic)
+2. [Abi](https://github.com/abi-2021) (CSS and Styling)
+3. [Saj](https://github.com/sajees89) (Page Logic)
+4. [Jaimit](https://github.com/jaimitpatel) (API Information)
+<br>
 ©2021 All Rights Reserved.
 
