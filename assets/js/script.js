@@ -61,13 +61,11 @@ async function cocktailFetch() {
   let response = await fetch ('https://www.thecocktaildb.com/api/json/v1/1/random.php')
   let data2 = await response.json()
   cocktailData = data2;
-  //set the directions for making the cocktail at the bottom and unhides the div
-  resultCocktailDirectionsel.innerText = cocktailData.drinks[0].strInstructions;
-  resultSection.classList.remove('hide');
   // This function is located at the bottom, it pushes all cocktail ingredients into an arrray and filters out null entries
   setCocktailIngredients();
   // This function fills a card div with cocktail information and attaches it to a container below the cocktail button
   fillCocktailCard();
+  saveRecipes();
 };
 
 //Page logic
@@ -144,6 +142,7 @@ modalSelectBtn.addEventListener("click", function(){
   selectedRecipeData = recipeData.hits[cRecipeInd];
   // This function creates a card with selected recipe information and appends it below the meal button
   fillRecipeCardEl();
+  saveRecipes();
 });
 
 //function for filling the recipe card container
@@ -248,4 +247,25 @@ var fillCocktailCard = function() {
   }
   // Append the completed card to the card container element
   cocktailCardContEl.appendChild(cocktailCardEl); 
+
+  //set the directions for making the cocktail at the bottom and unhides the div
+  resultCocktailDirectionsel.innerText = cocktailData.drinks[0].strInstructions;
+  resultSection.classList.remove('hide');
+};
+
+var saveRecipes = function(){
+  localStorage.setItem("mealRecipe", JSON.stringify(selectedRecipeData));
+  localStorage.setItem("cocktailRecipe", JSON.stringify(cocktailData));
+};
+
+var getRecipes = function(){
+  selectedRecipeData = JSON.parse(localStorage.getItem("mealRecipe"));
+  cocktailData = JSON.parse(localStorage.getItem("cocktailRecipe"));
+};
+
+if ((!selectedRecipeData != undefined) || (!cocktailData != undefined)){
+  getRecipes();
+  console.log("saved info present");
+  fillCocktailCard();
+  fillRecipeCardEl();
 };
