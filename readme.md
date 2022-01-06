@@ -5,8 +5,8 @@
 
 ### Links:
 
-<li> Deployed Website: https://charlestietjen.github.io/Trilogy-Group-Project-1/ <br>
-<li> Github : https://github.com/charlestietjen/Trilogy-Group-Project-1
+<li> Deployed Website: https://charlestietjen.github.io/Trilogy-Group-Project-Recipe-Helper/ <br>
+<li> Github : https://github.com/charlestietjen/Trilogy-Group-Project-Recipe-Helper
 
 
 ## About the Project:
