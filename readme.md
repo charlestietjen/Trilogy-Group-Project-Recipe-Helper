@@ -32,19 +32,25 @@ This is done using two different API's; [Edamam](https://developer.edamam.com/ed
 -Have a quality README (with unique name, description, technologies used, screenshot, and link to deployed application).
 ```
 
-## Acceptance Criteria:
+## Summary on Application:
 ```python
-GIVEN I am taking a code quiz
-WHEN I click the start button
-THEN a timer starts and I am presented with a question
-WHEN I answer a question
-THEN I am presented with another question
-WHEN I answer a question incorrectly
-THEN time is subtracted from the clock
-WHEN all questions are answered or the timer reaches 0
-THEN the game is over
-WHEN the game is over
-THEN I can save my initials and score
+- Page loads
+- User enters a cuisine category into the form field
+    - The form field assists the user by autocompleting to valid entries
+- User clicks on the meal button
+    - API call fills an array w/meal objects of the chosen cuisine from edamam
+    - A modal is presented to the user with information about a recipe
+    - The user may click "next" to view the next index in the array
+    - Clicking "Select" locks in the currently viewed recipe
+    - The modal closes on clicking "Select" or clicking outside the modal
+- User clicks on the cocktail button
+    - API call fills an array w/drink items
+    - Second API call to grab the first index in the array
+    - A modal is presented with information grabbed in the second call
+    - The user may click "next" to view the next index in the array
+    - Each next will require a new API call
+    - Clicking select locks in the currently viewed recipe
+    - The modal closes on clicking "Select" or clicking outside the modal)
 ```
 ## API Details:
 ### Edamam:
