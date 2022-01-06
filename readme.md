@@ -1,17 +1,32 @@
-# The first group project for Trilogy.
+## Links:
+```
 
-Our group has decided to make a website that allows users to select a specific type of cusine they would like, and would be able to pull a random recipe and restaurants nearby related to that cuisine.
+Deployed link: [Deployed Link](https://jaimitpatel.github.io/coding-quiz/#)
+Github link: [Github Link](https://github.com/jaimitpatel/coding-quiz)
 
+```
 
+## User Story:
 
-API's-
+```
+AS A coding boot camp student
+I WANT to take a timed quiz on JavaScript fundamentals that stores high scores
+SO THAT I can gauge my progress compared to my peers
+```
 
-Edamam - https://developer.edamam.com/edamam-recipe-api
-Yelp - https://www.yelp.ca/developers/documentation/v3/category
+## Acceptance Criteria:
 
-Group members-
-Charles Tietjen ()
-Saj Jeya ()
-Abirami Theepan (CSS)
-Jaimit Patel (API)
+```
+GIVEN I am taking a code quiz
+WHEN I click the start button
+THEN a timer starts and I am presented with a question
+WHEN I answer a question
+THEN I am presented with another question
+WHEN I answer a question incorrectly
+THEN time is subtracted from the clock
+WHEN all questions are answered or the timer reaches 0
+THEN the game is over
+WHEN the game is over
+THEN I can save my initials and score
 
+```
