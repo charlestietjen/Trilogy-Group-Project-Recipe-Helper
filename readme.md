@@ -1,4 +1,5 @@
-# Recipe Helper
+![Recipe_Helper (1)](https://user-images.githubusercontent.com/3880463/148457499-353ab44b-08cf-4f00-bb88-ce9c0e410bd1.png)
+
 ![GitHub contributors](https://img.shields.io/github/contributors/charlestietjen/Trilogy-Group-Project-1)
 ![GitHub last commit](https://img.shields.io/github/last-commit/Charlestietjen/Trilogy-Group-Project-1)
 
