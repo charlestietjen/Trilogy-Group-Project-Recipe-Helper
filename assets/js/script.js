@@ -29,16 +29,16 @@ var currentCocktailIngredients = [];
 
 
 searchButton.addEventListener("click", () => {
-  sendApiRequest()
+  mealFetch()
 })
 
 searchDrink.addEventListener("click", () => {
-  sendApiRequest2()
+  cocktailFetch()
 })
 // JS 1
 
 // edamam fetch
-async function sendApiRequest(){
+async function mealFetch(){
   let APP_ID = "8ad7c3e9"
   let APP_KEY = "bf56552f866dd3ccad5d1f970588ac81"
   let TYPE = cuisineType
@@ -58,7 +58,7 @@ async function sendApiRequest(){
 };
 
 // cocktaildb fetch 
-async function sendApiRequest2() {
+async function cocktailFetch() {
   let API_KEY = "1"
   let response = await fetch ('https://www.thecocktaildb.com/api/json/v1/1/random.php')
   //console.log(response)
@@ -66,8 +66,9 @@ async function sendApiRequest2() {
   cocktailData = data2;
   resultCocktailDirectionsel.innerText = cocktailData.drinks[0].strInstructions;
   resultSection.classList.remove('hide');
-  //console.log(cocktailData);
+  console.log(cocktailData);
   setCocktailIngredients();
+  fillCocktailCard();
   //useApiData2(data2)
 }
 
@@ -231,4 +232,40 @@ var setCocktailIngredients = function() {
   //console.log(currentCocktailIngredients);
   currentCocktailIngredients = currentCocktailIngredients.filter(function(n){return n;});
   //console.log(currentCocktailIngredients);
+};
+
+var fillCocktailCard = function() {
+
+  cocktailCardContEl.innerHTML = "";
+
+  var cocktailCardEl = document.createElement("div");
+  cocktailCardEl.classList = "card animate__animated animate__backInLeft";
+  cocktailCardEl.setAttribute("style", "width:22rem;")
+
+  var cocktailCardImgEl = document.createElement("img"); 
+  cocktailCardImgEl.setAttribute("src", cocktailData.drinks[0].strDrinkThumb); 
+  cocktailCardImgEl.classList = "card-img-top"; 
+  cocktailCardEl.appendChild(cocktailCardImgEl); 
+
+  var cocktailCardBodyEl = document.createElement("div"); 
+  cocktailCardBodyEl.classList = "card-body"; 
+  cocktailCardEl.appendChild(cocktailCardBodyEl); 
+
+  var cocktailTitleEl = document.createElement("H5"); 
+  cocktailTitleEl.classList = "card-subtitle fs-6"; 
+  cocktailTitleEl.innerText = cocktailData.drinks[0].strDrink; 
+  cocktailCardBodyEl.appendChild(cocktailTitleEl); 
+
+  var cocktailCardIngContEl = document.createElement("ul"); 
+  cocktailCardIngContEl.classList = "card-text"; 
+  cocktailCardBodyEl.appendChild(cocktailCardIngContEl); 
+
+  for (i = 0; i < currentCocktailIngredients.length; i++){
+    var newLine = document.createElement("li"); 
+    newLine.innerText = currentCocktailIngredients[i]; 
+    cocktailCardIngContEl.appendChild(newLine); 
+  }
+
+
+  cocktailCardContEl.appendChild(cocktailCardEl); 
 };
