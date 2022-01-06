@@ -68,6 +68,7 @@ async function sendApiRequest2() {
   resultSection.classList.remove('hide');
   //console.log(cocktailData);
   setCocktailIngredients();
+  fillCocktailCard();
   //useApiData2(data2)
 }
 
@@ -231,4 +232,44 @@ var setCocktailIngredients = function() {
   //console.log(currentCocktailIngredients);
   currentCocktailIngredients = currentCocktailIngredients.filter(function(n){return n;});
   //console.log(currentCocktailIngredients);
+};
+
+
+
+
+
+var fillCocktailCard = function() {
+
+  cocktailCardContEl.innerHTML = "";
+
+  var cocktailCardEl = document.createElement("div");
+  cocktailCardEl.classList = "card animate__animated animate__backInLeft";
+  cocktailCardEl.setAttribute("style", "width:22rem;")
+
+  var cocktailCardImgEl = document.createElement("img"); 
+  cocktailCardImgEl.setAttribute("src", cocktailData.drinks[0].strDrinkThumb); 
+  cocktailCardImgEl.classList = "card-img-top"; 
+  cocktailCardEl.appendChild(cocktailCardImgEl); 
+
+  var cocktailCardBodyEl = document.createElement("div"); 
+  cocktailCardBodyEl.classList = "card-body"; 
+  cocktailCardEl.appendChild(cocktailCardBodyEl); 
+
+  var cocktailTitleEl = document.createElement("H5"); 
+  cocktailTitleEl.classList = "card-subtitle fs-6"; 
+  cocktailTitleEl.innerText = cocktailData.drinks[0].strDrink; 
+  cocktailCardBodyEl.appendChild(cocktailTitleEl); 
+
+  var cocktailCardIngContEl = document.createElement("ul"); 
+  cocktailCardIngContEl.classList = "card-text"; 
+  cocktailCardBodyEl.appendChild(cocktailCardIngContEl); 
+
+  for (i = 0; i < currentCocktailIngredients.length; i++){
+    var newLine = document.createElement("li"); 
+    newLine.innerText = currentCocktailIngredients[i]; 
+    cocktailCardIngContEl.appendChild(newLine); 
+  }
+
+
+  cocktailCardContEl.appendChild(cocktailCardEl); 
 };
