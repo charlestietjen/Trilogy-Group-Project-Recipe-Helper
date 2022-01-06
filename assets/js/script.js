@@ -147,6 +147,8 @@ for(i = 0; i < cuisineTypeArr.length; i++){
   cListItem.addEventListener("click", function() {setCuisineType(this.innerText)
     searchButton.classList.remove('hide');
     searchDrink.classList.remove('hide');
+    searchButton.classList.add('animate__animated', 'animate__bounceInLeft');
+    searchDrink.classList.add('animate__animated', 'animate__bounceInRight');
   });
 };
 
@@ -169,7 +171,7 @@ var fillRecipeCardEl = function() {
   recipeCardContEl.innerHTML = "";
   //create new card
   var recipeCardEl = document.createElement("div");
-  recipeCardEl.classList = "card animate__animated animate__backInDown";
+  recipeCardEl.classList = "card animate__animated animate__backInLeft";
   recipeCardEl.setAttribute("style", "width:22rem;")
   //create image, assign src and attach to the card
   var recipeCardImgEl = document.createElement("img");
