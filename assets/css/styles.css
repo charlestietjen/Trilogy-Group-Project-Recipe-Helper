@@ -57,3 +57,10 @@ body {
 }
 
 
+.ingredient-lines {
+  font-size: smaller;
+}
+
+.recipe-cautions {
+  font-size: small;
+}
