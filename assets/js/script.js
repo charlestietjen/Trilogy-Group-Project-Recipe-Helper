@@ -234,6 +234,7 @@ var setCocktailIngredients = function() {
   //console.log(currentCocktailIngredients);
 };
 
+
 var fillCocktailCard = function() {
 
   cocktailCardContEl.innerHTML = "";
