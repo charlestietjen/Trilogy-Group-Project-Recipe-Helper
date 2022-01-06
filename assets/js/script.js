@@ -4,6 +4,19 @@ var cuisineType = "";
 var recipeData;
 var cocktailData;
 var selectedRecipeData;
+var cuisineTypeArr = ["American", "Asian", "Caribbean", "Central Europe", "Chinese", "Eastern Europe", "French", "Indian", "Japanese", "Mexican", "Middle Eastern", "South American", "South East Asian"];
+var cuisineDDEl = document.querySelector("#cuisine-container");
+var cuisineBtnEl = document.querySelector("#cuisine");
+var modalImgContEl = document.querySelector("#modal-image");
+var modalIngLEl = document.querySelector("#ingredient-lines")
+var modalTitleEl = document.querySelector("#modal-title");
+var modalNextBtn = document.querySelector("#modal-next-btn");
+var modalSelectBtn = document.querySelector("#modal-select-btn");
+var cautionsContEl = document.querySelector("#recipe-cautions");
+var recipeCardContEl = document.querySelector("#recipe-card-container");
+var cocktailCardContEl = document.querySelector("#cocktail-card-container");
+var cRecipeInd = 0;
+
 
 searchButton.addEventListener("click", () => {
   //console.log('recipe pressed')
@@ -86,36 +99,7 @@ function useApiData2(data2){
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 //Page logic
-var cuisineTypeArr = ["American", "Asian", "Caribbean", "Central Europe", "Chinese", "Eastern Europe", "French", "Indian", "Japanese", "Mexican", "Middle Eastern", "South American", "South East Asian"];
-var cuisineDDEl = document.querySelector("#cuisine-container");
-var cuisineBtnEl = document.querySelector("#cuisine");
-var modalImgContEl = document.querySelector("#modal-image");
-var modalIngLEl = document.querySelector("#ingredient-lines")
-var modalTitleEl = document.querySelector("#modal-title");
-var modalNextBtn = document.querySelector("#modal-next-btn");
-var modalSelectBtn = document.querySelector("#modal-select-btn");
-var cautionsContEl = document.querySelector("#recipe-cautions");
-var cRecipeInd = 0;
-
 // Default dropdown value
 const DEFAULT_DROPDOWN_VALUE = 'Cuisine';
 
@@ -200,5 +184,42 @@ modalNextBtn.addEventListener("click", function(){
 //clicking select on the modal fills the selectedRecipeData global var with the object found in recipeData.hits[rRecipeInd]
 modalSelectBtn.addEventListener("click", function(){
   selectedRecipeData = recipeData.hits[cRecipeInd];
-  //console.log(selectedRecipeData);
+  fillRecipeCardEl();
 });
+
+//function for filling the recipe card container
+var fillRecipeCardEl = function() {
+  //clear current card
+  recipeCardContEl.innerHTML = "";
+  //create new card
+  var recipeCardEl = document.createElement("div");
+  recipeCardEl.classList = "card animate__animated animate__backInDown";
+  recipeCardEl.setAttribute("style", "width:22rem;")
+  //create image, assign src and attach to the card
+  var recipeCardImgEl = document.createElement("img");
+  recipeCardImgEl.setAttribute("src", selectedRecipeData.recipe.image);
+  recipeCardImgEl.classList = "card-img-top";
+  recipeCardEl.appendChild(recipeCardImgEl);
+  //create card body and attach to the card under the image
+  var recipeCardBodyEl = document.createElement("div");
+  recipeCardBodyEl.classList = "card-body";
+  recipeCardEl.appendChild(recipeCardBodyEl);
+  //create title and attach to the body of the card
+  var recipeTitleEl = document.createElement("H5");
+  recipeTitleEl.classList = "card-subtitle fs-6";
+  recipeTitleEl.innerText = selectedRecipeData.recipe.label;
+  recipeCardBodyEl.appendChild(recipeTitleEl);
+  //create ingredient list and append to the body
+  var recipeCardIngContEl = document.createElement("ul");
+  recipeCardIngContEl.classList = "card-text";
+  recipeCardBodyEl.appendChild(recipeCardIngContEl);
+  for (i = 0; i < selectedRecipeData.recipe.ingredientLines.length; i++){
+    var newLine = document.createElement("li");
+    newLine.innerText = selectedRecipeData.recipe.ingredientLines[i];
+    recipeCardIngContEl.appendChild(newLine);
+  }
+
+
+  //append card to container
+  recipeCardContEl.appendChild(recipeCardEl);
+}

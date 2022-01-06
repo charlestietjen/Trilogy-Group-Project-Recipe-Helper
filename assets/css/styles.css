@@ -33,6 +33,7 @@ body {
   background-image: url("../images/Tanjong+Beach+Club_Food_Salads+&+Mains.jpg");
   background-size: cover;
   background-repeat: no-repeat;
+  background-attachment: fixed;
   height: 95vh;
 
 }
@@ -63,4 +64,8 @@ body {
 
 .recipe-cautions {
   font-size: small;
+}
+
+.card-title {
+  text-align: center;
 }
