@@ -15,20 +15,29 @@ var modalSelectBtn = document.querySelector("#modal-select-btn");
 var cautionsContEl = document.querySelector("#recipe-cautions");
 var recipeCardContEl = document.querySelector("#recipe-card-container");
 var cocktailCardContEl = document.querySelector("#cocktail-card-container");
+var resultMealLabelEl = document.querySelector("#result-meal-label");
+var resultMealImgEl = document.querySelector("#result-meal-img");
+var resultMealIngredientsEl = document.querySelector("#result-meal-ingredients");
+var resultCocktailLabelEl = document.querySelector("#result-cocktail-label");
+var resultCocktailImgEl = document.querySelector("#result-cocktail-img");
+var resultCocktailIngredientsEl = document.querySelector("#result-cocktail-ingredients");
+var resultMealDirectionsEl = document.querySelector("#result-meal-directions");
+var resultCocktailDirectionsel = document.querySelector("#result-cocktail-directions");
+var resultSection = document.querySelector('#result');
 var cRecipeInd = 0;
+var currentCocktailIngredients = [];
 
 
 searchButton.addEventListener("click", () => {
-  //console.log('recipe pressed')
   sendApiRequest()
 })
 
 searchDrink.addEventListener("click", () => {
-  //console.log('drink pressed')
   sendApiRequest2()
 })
 // JS 1
 
+// edamam fetch
 async function sendApiRequest(){
   let APP_ID = "8ad7c3e9"
   let APP_KEY = "bf56552f866dd3ccad5d1f970588ac81"
@@ -43,33 +52,17 @@ async function sendApiRequest(){
   //useApiData(data)
 }
 
-//function useApiData(data){
-//  document.querySelector('#content').innerHTML = `
-//  <div class="card" style="width: 18rem;">
-//  <img class="card-img-top" src="${data.hits[5].recipe.image}" alt="Card image cap">
-//  <div class="card-body">
-//    <h5 class="card-title">${data.hits[0].recipe.label}</h5>
-//    <p class="card-text">Ingredients: ${data.hits[0].recipe.ingredientLines}</p>
-//    <a href="${data.hits[0].recipe.url}" class="btn btn-primary">Go somewhere</a>
-//  </div>
-//</div>
-//  `
-//}
-
-
-
-//console.log('Restaurant and Recipe Finder');
-
-
-// cocktail recipe 
-
+// cocktaildb fetch 
 async function sendApiRequest2() {
   let API_KEY = "1"
   let response = await fetch ('https://www.thecocktaildb.com/api/json/v1/1/random.php')
   //console.log(response)
   let data2 = await response.json()
   cocktailData = data2;
-  console.log(cocktailData);
+  resultCocktailDirectionsel.innerText = cocktailData.drinks[0].strInstructions;
+  resultSection.classList.remove('hide');
+  //console.log(cocktailData);
+  setCocktailIngredients();
   //useApiData2(data2)
 }
 
@@ -107,18 +100,9 @@ var setCuisineType = (function(cType){
   cuisineType = cType;
   cuisineBtnEl.innerText = cType;
 });
-// I think I broke this function that uses jquery when i reassigned id's to tie the two halves of the script together but i also think i rewrote what it does in native js. ¯\_(ツ)_/¯ - Charles
-// Display selected item from dropdown
-//$('.dropdown-menu li a').click(function () {
-//    $('#cuisine').html($(this).text());
-//    console.log(this)
-//    console.log("the jquery function went off, what did it do???")
-//    cuisineType = $(this).text();
-//});
 
 //Display recipe in modal
 var fillRecipeModal = function(ind = 0) {
-  //console.log(recipe);
   ind = cRecipeInd + ind;
   cRecipeInd = ind;
   modalImgContEl.innerHTML = "";
@@ -146,23 +130,6 @@ var fillRecipeModal = function(ind = 0) {
   };
 };
 
-// Hide search section and show result
-const smashBtn = document.querySelector('#smash');
-const cuisineContainer = document.querySelector('#cuisineContainer');
-smashBtn.addEventListener('click', function (event) {
-    cuisineContainer.classList.add('hide');
-    resultSection.classList.remove('hide');
-    document.querySelector('#cuisine').textContent = DEFAULT_DROPDOWN_VALUE;
-});
-
-// Show search section and hide result
-const resultSection = document.querySelector('#result');
-const goHomeBtn = document.querySelector('#gohome');
-goHomeBtn.addEventListener('click', function (event) {
-    cuisineContainer.classList.remove('hide');
-    resultSection.classList.add('hide');
-});
-
 // Dynamically populate the cuisineType dropdown menu with available options from the array
 for(i = 0; i < cuisineTypeArr.length; i++){
   var cListItem = document.createElement("li");
@@ -185,6 +152,7 @@ modalNextBtn.addEventListener("click", function(){
 modalSelectBtn.addEventListener("click", function(){
   selectedRecipeData = recipeData.hits[cRecipeInd];
   fillRecipeCardEl();
+  //console.log(selectedRecipeData);
 });
 
 //function for filling the recipe card container
@@ -218,8 +186,39 @@ var fillRecipeCardEl = function() {
     newLine.innerText = selectedRecipeData.recipe.ingredientLines[i];
     recipeCardIngContEl.appendChild(newLine);
   }
-
-
+  var goToRecipeBtn = document.createElement("button");
+  goToRecipeBtn.classList = "btn btn-success";
+  goToRecipeBtn.innerText = "Go To Recipe";
+  recipeCardBodyEl.appendChild(goToRecipeBtn);
+  goToRecipeBtn.addEventListener("click", function(){
+    open(selectedRecipeData.recipe.url);
+  })
   //append card to container
   recipeCardContEl.appendChild(recipeCardEl);
-}
+};
+
+var resultsFill = function(){
+  
+};
+
+var setCocktailIngredients = function() {
+  currentCocktailIngredients = [];
+  currentCocktailIngredients.push(cocktailData.drinks[0].strIngredient1);
+  currentCocktailIngredients.push(cocktailData.drinks[0].strIngredient2);
+  currentCocktailIngredients.push(cocktailData.drinks[0].strIngredient3);
+  currentCocktailIngredients.push(cocktailData.drinks[0].strIngredient4);
+  currentCocktailIngredients.push(cocktailData.drinks[0].strIngredient5);
+  currentCocktailIngredients.push(cocktailData.drinks[0].strIngredient6);
+  currentCocktailIngredients.push(cocktailData.drinks[0].strIngredient7);
+  currentCocktailIngredients.push(cocktailData.drinks[0].strIngredient8);
+  currentCocktailIngredients.push(cocktailData.drinks[0].strIngredient9);
+  currentCocktailIngredients.push(cocktailData.drinks[0].strIngredient10);
+  currentCocktailIngredients.push(cocktailData.drinks[0].strIngredient11);
+  currentCocktailIngredients.push(cocktailData.drinks[0].strIngredient12);
+  currentCocktailIngredients.push(cocktailData.drinks[0].strIngredient13);
+  currentCocktailIngredients.push(cocktailData.drinks[0].strIngredient14);
+  currentCocktailIngredients.push(cocktailData.drinks[0].strIngredient15);
+  //console.log(currentCocktailIngredients);
+  currentCocktailIngredients = currentCocktailIngredients.filter(function(n){return n;});
+  //console.log(currentCocktailIngredients);
+};
