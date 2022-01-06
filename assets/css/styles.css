@@ -57,6 +57,9 @@ body {
 
 }
 
+.dropdown-item {
+  cursor: pointer;
+}
 
 .ingredient-lines {
   font-size: smaller;

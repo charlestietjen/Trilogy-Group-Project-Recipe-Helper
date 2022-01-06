@@ -44,13 +44,18 @@ async function sendApiRequest(){
   let TYPE = cuisineType
   let response = await fetch ('https://api.edamam.com/api/recipes/v2?type=public&app_id=' + APP_ID + '&app_key=' + APP_KEY + '&random=true&dishType=Main%20course&cuisineType=' + TYPE)
   //console.log(response)
-  let data = await response.json()
-  //console.log(data)
-  recipeData = data;
-  fillRecipeModal(0);
-  //console.log(recipeData);
-  //useApiData(data)
-}
+  if(response.ok){
+    let data = await response.json()
+    //console.log(data)
+    recipeData = data;
+    fillRecipeModal(0);
+    //console.log(recipeData);
+    //useApiData(data)
+  } else {
+    badResponseModal();
+    //console.log("response was not ok");
+  };
+};
 
 // cocktaildb fetch 
 async function sendApiRequest2() {
@@ -139,7 +144,10 @@ for(i = 0; i < cuisineTypeArr.length; i++){
   cListItemA.innerText = cuisineTypeArr[i];
   cListItem.appendChild(cListItemA);
   cuisineDDEl.appendChild(cListItem);
-  cListItemA.addEventListener("click", function() {setCuisineType(this.innerText)});
+  cListItem.addEventListener("click", function() {setCuisineType(this.innerText)
+    searchButton.classList.remove('hide');
+    searchDrink.classList.remove('hide');
+  });
 };
 
 
@@ -197,8 +205,8 @@ var fillRecipeCardEl = function() {
   recipeCardContEl.appendChild(recipeCardEl);
 };
 
-var resultsFill = function(){
-  
+var badResponseModal = function(){
+  modalTitleEl.innerText = "Recipe search is unavailable, please try again later.";
 };
 
 var setCocktailIngredients = function() {
