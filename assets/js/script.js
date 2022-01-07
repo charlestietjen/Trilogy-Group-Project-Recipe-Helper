@@ -35,12 +35,11 @@ searchButton.addEventListener("click", () => {
 searchDrink.addEventListener("click", () => {
   cocktailFetch()
 })
-// JS 1
 
 // edamam fetch
 async function mealFetch(){
-  let APP_ID = "8ad7c3e9"
-  let APP_KEY = "bf56552f866dd3ccad5d1f970588ac81"
+  let APP_ID = "82446414"
+  let APP_KEY = "e33914458ccf91189cbbbdaf6ce48cb1"
   let TYPE = cuisineType
   let response = await fetch ('https://api.edamam.com/api/recipes/v2?type=public&app_id=' + APP_ID + '&app_key=' + APP_KEY + '&random=true&dishType=Main%20course&cuisineType=' + TYPE)
   if(response.ok){
