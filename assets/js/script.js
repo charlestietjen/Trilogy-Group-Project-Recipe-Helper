@@ -35,12 +35,11 @@ searchButton.addEventListener("click", () => {
 searchDrink.addEventListener("click", () => {
   cocktailFetch()
 })
-// JS 1
 
 // edamam fetch
 async function mealFetch(){
-  let APP_ID = "8ad7c3e9"
-  let APP_KEY = "bf56552f866dd3ccad5d1f970588ac81"
+  let APP_ID = "82446414"
+  let APP_KEY = "e33914458ccf91189cbbbdaf6ce48cb1"
   let TYPE = cuisineType
   let response = await fetch ('https://api.edamam.com/api/recipes/v2?type=public&app_id=' + APP_ID + '&app_key=' + APP_KEY + '&random=true&dishType=Main%20course&cuisineType=' + TYPE)
   if(response.ok){
@@ -152,7 +151,7 @@ var fillRecipeCardEl = function() {
   //create new card
   var recipeCardEl = document.createElement("div");
   recipeCardEl.classList = "card animate__animated animate__backInLeft";
-  recipeCardEl.setAttribute("style", "width:22rem;")
+  recipeCardEl.setAttribute("style", "max-width:22rem;")
   //create image, assign src and attach to the card
   var recipeCardImgEl = document.createElement("img");
   recipeCardImgEl.setAttribute("src", selectedRecipeData.recipe.image);
@@ -220,7 +219,7 @@ var fillCocktailCard = function() {
   // Create the card div
   var cocktailCardEl = document.createElement("div");
   cocktailCardEl.classList = "card animate__animated animate__backInLeft";
-  cocktailCardEl.setAttribute("style", "width:22rem;")
+  cocktailCardEl.setAttribute("style", "max-width:22rem;")
   // Create the card img element and append to the card
   var cocktailCardImgEl = document.createElement("img"); 
   cocktailCardImgEl.setAttribute("src", cocktailData.drinks[0].strDrinkThumb); 
