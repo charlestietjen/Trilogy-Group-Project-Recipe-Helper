@@ -218,7 +218,7 @@ var fillCocktailCard = function() {
   cocktailCardContEl.innerHTML = "";
   // Create the card div
   var cocktailCardEl = document.createElement("div");
-  cocktailCardEl.classList = "card animate__animated animate__backInLeft";
+  cocktailCardEl.classList = "card animate__animated animate__backInRight";
   cocktailCardEl.setAttribute("style", "max-width:22rem;")
   // Create the card img element and append to the card
   var cocktailCardImgEl = document.createElement("img"); 
