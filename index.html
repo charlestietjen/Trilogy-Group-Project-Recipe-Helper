@@ -15,6 +15,39 @@
   <div class="d-flex flex-cloumn justify-content-center align-items-center py-5">
     <h1 class="display-1 px-3 py-1 border border-3 rounded border-dark bg-info  animate__animated animate__backInDown">Recipe Helper</h1>
   </div>
+    <!-- Dropdown modal -->
+  <div class="modal fade" id="modal" tabindex="-1" aria-labelledby="modalLabel" aria-hidden="true"> 
+    <div class="modal-dialog modal-dialog-centered" >
+      <div class="modal-content" id="content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="modal-title">Modal title</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <div class="container-fluid">
+            <div class="row">
+              <div class="col-3">
+                <ol id="recipe-cautions"></ol>
+              </div>
+              <div class="col" id="modal-image"></div>
+            </div>
+            <div class="row">
+              <div class="col">
+                <ul id="ingredient-lines"></ul>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+            Close
+          </button>
+          <button type="button" class="btn btn-primary" data-bs-dismiss="modal" id="modal-select-btn">Select</button>
+          <button type="button" class="btn btn-success" id="modal-next-btn">Next</button>
+        </div>
+      </div>
+    </div>
+  </div>
   <div class="container mt-3 py-4" id="cuisineContainer">
     <div class="row">
       <div class="col d-flex justify-content-center">
@@ -59,43 +92,6 @@
       </div>
     </div>
   </section>
-  <!-- Dropdown modal -->
-  <div class="modal fade" id="modal" tabindex="-1" aria-labelledby="modalLabel" aria-hidden="true"> 
-    <div class="modal-dialog modal-dialog-centered modal-fullscreen-md-down">
-      <div class="modal-content" id="content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="modal-title">Modal title</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body">
-          <div class="container-fluid">
-            <div class="row">
-              <div class="col-3">
-                <ol id="recipe-cautions"></ol>
-              </div>
-              <div class="col" id="modal-image"></div>
-            </div>
-            <div class="row">
-              <div class="col">
-                <ul id="ingredient-lines"></ul>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="modal-footer">
-          <button
-            type="button"
-            class="btn btn-secondary"
-            data-bs-dismiss="modal"
-          >
-            Close
-          </button>
-          <button type="button" class="btn btn-primary" data-bs-dismiss="modal" id="modal-select-btn">Select</button>
-          <button type="button" class="btn btn-success" id="modal-next-btn">Next</button>
-        </div>
-      </div>
-    </div>
-  </div>
   <script src="./assets/js/script.js"></script>
     
 </body>

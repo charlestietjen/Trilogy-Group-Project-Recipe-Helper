@@ -72,3 +72,9 @@ body {
 .card-title {
   text-align: center;
 }
+
+@media only screen and (max-width: 600px) {
+  .modal-dialog {
+    max-width: 60%;
+  }
+}
