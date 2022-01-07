@@ -151,7 +151,7 @@ var fillRecipeCardEl = function() {
   //create new card
   var recipeCardEl = document.createElement("div");
   recipeCardEl.classList = "card animate__animated animate__backInLeft";
-  recipeCardEl.setAttribute("style", "width:22rem;")
+  recipeCardEl.setAttribute("style", "max-width:22rem;")
   //create image, assign src and attach to the card
   var recipeCardImgEl = document.createElement("img");
   recipeCardImgEl.setAttribute("src", selectedRecipeData.recipe.image);
@@ -219,7 +219,7 @@ var fillCocktailCard = function() {
   // Create the card div
   var cocktailCardEl = document.createElement("div");
   cocktailCardEl.classList = "card animate__animated animate__backInLeft";
-  cocktailCardEl.setAttribute("style", "width:22rem;")
+  cocktailCardEl.setAttribute("style", "max-width:22rem;")
   // Create the card img element and append to the card
   var cocktailCardImgEl = document.createElement("img"); 
   cocktailCardImgEl.setAttribute("src", cocktailData.drinks[0].strDrinkThumb); 
