@@ -66,7 +66,7 @@ body {
 }
 
 .recipe-cautions {
-  font-size: small;
+  font-size: smaller;
 }
 
 .card-title {
@@ -75,6 +75,6 @@ body {
 
 @media only screen and (max-width: 600px) {
   .modal-dialog {
-    max-width: 60%;
+    max-width: 60vw;
   }
 }
