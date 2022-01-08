@@ -26,6 +26,7 @@ var resultCocktailDirectionsel = document.querySelector("#result-cocktail-direct
 var resultSection = document.querySelector('#result');
 var cRecipeInd = 0;
 var currentCocktailIngredients = [];
+var modalEl = document.querySelector("#modal");
 
 
 searchButton.addEventListener("click", () => {
@@ -270,3 +271,13 @@ if (selectedRecipeData != undefined){
 if (cocktailData != undefined) {
   fillCocktailCard();
 };
+
+document.addEventListener('show.bs.modal', function(){
+  recipeCardContEl.classList.add('hide');
+  cocktailCardContEl.classList.add('hide');
+});
+
+document.addEventListener('hide.bs.modal', function(){
+  recipeCardContEl.classList.remove('hide');
+  cocktailCardContEl.classList.remove('hide');
+});
