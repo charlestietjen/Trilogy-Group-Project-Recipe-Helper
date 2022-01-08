@@ -77,4 +77,7 @@ body {
   .modal-dialog {
     max-width: 60vw;
   }
+  .recipe-cautions {
+    display: none;
+  }
 }
