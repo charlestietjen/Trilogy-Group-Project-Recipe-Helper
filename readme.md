@@ -17,8 +17,6 @@ The user also has the option to select a randomized cocktail to pair with their 
 This is done using two different API's; [Edamam](https://developer.edamam.com/edamam-docs-recipe-api) , and [CocktailDB](https://www.thecocktaildb.com/api.php)
 
 
-
-
 ## Project Requirements:
 ```python
 - Use a CSS framework other than Bootstrap.
@@ -33,9 +31,10 @@ This is done using two different API's; [Edamam](https://developer.edamam.com/ed
 -Have a quality README (with unique name, description, technologies used, screenshot, and link to deployed application).
 ```
 
-## Summary on Application:
+## Summary of Application:
 ```python
 - Page loads
+- Script pulls any saved data from storage and displays last shown recipe cards if present
 - User enters a cuisine category into the form field
     - The form field assists the user by autocompleting to valid entries
 - User clicks on the meal button
@@ -43,15 +42,13 @@ This is done using two different API's; [Edamam](https://developer.edamam.com/ed
     - A modal is presented to the user with information about a recipe
     - The user may click "next" to view the next index in the array
     - Clicking "Select" locks in the currently viewed recipe
+    - The selected recipe is stored in localstorage, overwriting any previous data
     - The modal closes on clicking "Select" or clicking outside the modal
 - User clicks on the cocktail button
     - API call fills an array w/drink items
     - Second API call to grab the first index in the array
-    - A modal is presented with information grabbed in the second call
-    - The user may click "next" to view the next index in the array
-    - Each next will require a new API call
-    - Clicking select locks in the currently viewed recipe
-    - The modal closes on clicking "Select" or clicking outside the modal)
+    - A card is presented with information grabbed in the second call
+    - The cocktail displayed is stored in localstorage, overwriting previous data
 ```
 ## API Details:
 ### Edamam:
@@ -94,6 +91,12 @@ async function fetchCocktail() {
   resultSection.classList.remove('hide');
   setCocktailIngredients();
 ```
+One issue we faced with the way CocktailDB presents it's data was that the ingredients list consists of 15 always present strings, strIngredient1 and so on, with blank ingredients as null entries. 
+    
+To avoid cumbersome if statements in various spots we opted to write a single function "setCocktailIngredients" that
+used a push method to add all 15 strings to a single array and then used a filter to remove null entries from the array. We called this function right after the API call
+so that any functions or methods needing to reference the cocktail ingredients could do so via one simple array.
+    
 ##### Endpoint: https://www.thecocktaildb.com/api/json/v1/1/random.php
 
 ### Diagrams:
